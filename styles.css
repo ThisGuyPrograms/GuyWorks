@@ -642,3 +642,23 @@ footer p:last-child {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Coming soon badges for hero service tiles */
+.hero-coming-soon-badge {
+  position: absolute;
+  z-index: 3;
+  top: 18px;
+  left: 18px;
+  padding: 7px 11px;
+  border: 1px solid rgba(255,177,94,.5);
+  border-radius: 999px;
+  background: rgba(13,17,23,.88);
+  box-shadow: 0 8px 24px rgba(0,0,0,.28);
+  backdrop-filter: blur(8px);
+  color: var(--accent-light);
+  font-size: .68rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: .14em;
+}
