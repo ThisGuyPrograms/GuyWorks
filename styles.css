@@ -526,3 +526,62 @@ footer p:last-child {
     grid-column: 1;
   }
 }
+
+/* Service availability and website demo links */
+.coming-soon-card {
+  position: relative;
+}
+
+.coming-soon-banner {
+  position: absolute;
+  z-index: 5;
+  top: 22px;
+  right: -42px;
+  width: 190px;
+  padding: 9px 0;
+  text-align: center;
+  background: linear-gradient(135deg, var(--accent-light), var(--accent));
+  color: #19110a;
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  transform: rotate(38deg);
+}
+
+.coming-soon-card .placeholder-image,
+.coming-soon-card .service-content {
+  opacity: .72;
+}
+
+.template-links {
+  margin-top: 26px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.template-links p {
+  margin-bottom: 14px;
+  color: var(--text) !important;
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.template-button {
+  margin: 0 8px 10px 0;
+  min-height: 44px;
+  font-size: .9rem;
+}
+
+.template-links small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.disabled-link {
+  pointer-events: none;
+  opacity: .55;
+}
