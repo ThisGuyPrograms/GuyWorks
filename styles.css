@@ -864,3 +864,18 @@ footer p:last-child {
     align-items: flex-start;
   }
 }
+
+
+/* Two-service hero layout */
+.hero-art-two {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 360px;
+  align-self: center;
+}
+
+@media (max-width: 620px) {
+  .hero-art-two {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 180px);
+  }
+}
