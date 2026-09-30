@@ -202,9 +202,14 @@
         <h2>Tell GuyWorks about your website.</h2>
         <p>Fill out the quick form and select Submit Quote. Your email app will open with your answers ready to send to GuyWorks.</p>
       </div>
-      <div class="contact-card">
-        <p class="contact-label">WEBSITE QUOTE</p>
-        <h3>Request a website quote.</h3>
+      <div class="contact-card quote-card">
+        <div class="quote-card-heading">
+          <span class="quote-icon" aria-hidden="true">GW</span>
+          <div>
+            <p class="contact-label">WEBSITE QUOTE</p>
+            <h3>Request a website quote.</h3>
+          </div>
+        </div>
         <form id="quote-form">
           <div class="form-field">
             <label for="business-type">Business Type</label>
@@ -231,7 +236,7 @@
             <textarea id="questions" name="questions" rows="7" placeholder="Tell us anything else you'd like us to know."></textarea>
           </div>
 
-          <button class="button button-primary quote-submit" type="submit">Submit Quote</button>
+          <button class="button button-primary quote-submit" type="submit">Submit Quote <span aria-hidden="true">→</span></button>
           <p class="form-note">Submitting opens your default email app. You can review the message before sending it.</p>
         </form>
       </div>
