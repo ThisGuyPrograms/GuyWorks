@@ -885,7 +885,7 @@ footer p:last-child {
 .it-photo {
   background:
     linear-gradient(to top, rgba(8,12,17,.78), rgba(8,12,17,.08) 65%),
-    url("ITConsulting.jpeg") center center / cover no-repeat;
+    url("ITConsulting.JPG") center center / cover no-repeat;
 }
 
 .it-photo span {
@@ -897,7 +897,7 @@ footer p:last-child {
 .web-photo {
   background:
     linear-gradient(to top, rgba(8,12,17,.78), rgba(8,12,17,.08) 65%),
-    url("WebsiteDevelopment.jpeg") center center / cover no-repeat;
+    url("WebsiteDevelopment.JPG") center center / cover no-repeat;
 }
 
 .web-photo span {
