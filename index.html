@@ -191,7 +191,7 @@
 
           <div class="form-field">
             <label for="contact-phone">Phone</label>
-            <input type="tel" id="contact-phone" name="contact-phone" placeholder="(555) 555-5555" required>
+            <input type="tel" id="contact-phone" name="contact-phone" placeholder="(555) 555-5555" inputmode="numeric" autocomplete="tel" maxlength="14" required>
           </div>
 
           <fieldset class="form-field contact-preference">
@@ -226,6 +226,25 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const phoneInput = document.getElementById('contact-phone');
+
+    phoneInput.addEventListener('input', function () {
+      const digits = this.value.replace(/\D/g, '').slice(0, 10);
+      let formatted = '';
+
+      if (digits.length > 0) {
+        formatted = '(' + digits.slice(0, 3);
+      }
+      if (digits.length >= 3) {
+        formatted += ') ' + digits.slice(3, 6);
+      }
+      if (digits.length >= 6) {
+        formatted += '-' + digits.slice(6, 10);
+      }
+
+      this.value = formatted;
+    });
 
     document.getElementById('quote-form').addEventListener('submit', function (event) {
       event.preventDefault();
