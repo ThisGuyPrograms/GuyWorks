@@ -879,3 +879,15 @@ footer p:last-child {
     grid-template-rows: repeat(2, 180px);
   }
 }
+
+
+/* IT Consulting photo */
+.it-photo {
+  background:
+    linear-gradient(to top, rgba(8,12,17,.78), rgba(8,12,17,.08) 65%),
+    url("ITConsulting.jpeg") center center / cover no-repeat;
+}
+
+.it-photo span {
+  text-shadow: 0 3px 18px rgba(0,0,0,.72);
+}
