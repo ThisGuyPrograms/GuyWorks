@@ -155,15 +155,15 @@
     <section class="section contact-section" id="contact">
       <div>
         <p class="eyebrow">Request a Quote</p>
-        <h2>Tell GuyWorks about your website.</h2>
+        <h2>Tell GuyWorks what you need.</h2>
         <p>Fill out the quick form and select Submit Quote. Your email app will open with your answers ready to send to GuyWorks.</p>
       </div>
       <div class="contact-card quote-card">
         <div class="quote-card-heading">
           <span class="quote-icon" aria-hidden="true">GW</span>
           <div>
-            <p class="contact-label">WEBSITE QUOTE</p>
-            <h3>Request a website quote.</h3>
+            <p class="contact-label">REQUEST A QUOTE</p>
+            <h3>Request a Quote</h3>
           </div>
         </div>
         <form id="quote-form">
@@ -186,6 +186,25 @@
             <label for="locations">How many locations?</label>
             <input type="number" id="locations" name="locations" min="1" step="1" placeholder="1" required>
           </div>
+
+          <div class="form-field">
+            <label for="contact-email">Email</label>
+            <input type="email" id="contact-email" name="contact-email" placeholder="you@example.com" required>
+          </div>
+
+          <div class="form-field">
+            <label for="contact-phone">Phone</label>
+            <input type="tel" id="contact-phone" name="contact-phone" placeholder="(555) 555-5555" required>
+          </div>
+
+          <fieldset class="form-field contact-preference">
+            <legend>Preferred Contact Method</legend>
+            <div class="contact-options">
+              <label><input type="radio" name="contact-method" value="Email" required> <span>Email</span></label>
+              <label><input type="radio" name="contact-method" value="Phone"> <span>Phone</span></label>
+              <label><input type="radio" name="contact-method" value="Either"> <span>Either</span></label>
+            </div>
+          </fieldset>
 
           <div class="form-field">
             <label for="questions">If you have any questions, ask them here...</label>
@@ -217,15 +236,21 @@
       const businessType = document.getElementById('business-type').value;
       const businessName = document.getElementById('business-name').value.trim();
       const locations = document.getElementById('locations').value;
+      const contactEmail = document.getElementById('contact-email').value.trim();
+      const contactPhone = document.getElementById('contact-phone').value.trim();
+      const contactMethod = document.querySelector('input[name="contact-method"]:checked').value;
       const questions = document.getElementById('questions').value.trim() || 'None';
 
-      const subject = 'Website Quote Request - ' + businessName;
+      const subject = 'Quote Request - ' + businessName;
       const body =
         'Hello GuyWorks,\n\n' +
-        'I would like to request a website quote.\n\n' +
+        'I would like to request a quote.\n\n' +
         'Business Type: ' + businessType + '\n' +
         'Business Name: ' + businessName + '\n' +
-        'Number of Locations: ' + locations + '\n\n' +
+        'Number of Locations: ' + locations + '\n' +
+        'Email: ' + contactEmail + '\n' +
+        'Phone: ' + contactPhone + '\n' +
+        'Preferred Contact Method: ' + contactMethod + '\n\n' +
         'Questions / Additional Information:\n' + questions + '\n\n' +
         'Thank you!';
 
