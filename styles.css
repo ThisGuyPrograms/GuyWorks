@@ -891,3 +891,15 @@ footer p:last-child {
 .it-photo span {
   text-shadow: 0 3px 18px rgba(0,0,0,.72);
 }
+
+
+/* Static website development photo */
+.web-photo {
+  background:
+    linear-gradient(to top, rgba(8,12,17,.78), rgba(8,12,17,.08) 65%),
+    url("WebsiteDevelopment.jpeg") center center / cover no-repeat;
+}
+
+.web-photo span {
+  text-shadow: 0 3px 18px rgba(0,0,0,.72);
+}
