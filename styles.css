@@ -1044,6 +1044,6 @@ footer p:last-child {
 .placeholder-laser {
   background:
     linear-gradient(to top, rgba(8,12,17,.78), rgba(8,12,17,.08) 65%),
-    url("laser engraving stock image.jpg") center center / cover no-repeat;
+    url("EngravingStockImage.jpg") center center / cover no-repeat;
 }
 .placeholder-laser span { text-shadow: 0 3px 18px rgba(0,0,0,.72); }
