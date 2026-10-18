@@ -1039,3 +1039,11 @@ footer p:last-child {
 .hero-art-three .hero-panel span { font-size: clamp(1.5rem,3vw,2.8rem); }
 #laser-fields[hidden],#business-fields[hidden] { display:none; }
 @media(max-width:620px){.hero-art-three{grid-template-columns:1fr;grid-template-rows:repeat(3,160px)}}
+
+/* Laser engraving service photo */
+.placeholder-laser {
+  background:
+    linear-gradient(to top, rgba(8,12,17,.78), rgba(8,12,17,.08) 65%),
+    url("laser engraving stock image.jpg") center center / cover no-repeat;
+}
+.placeholder-laser span { text-shadow: 0 3px 18px rgba(0,0,0,.72); }
