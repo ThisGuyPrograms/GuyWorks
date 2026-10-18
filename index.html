@@ -25,7 +25,7 @@
   <main>
     <section class="hero" id="home">
       <div class="hero-copy">
-        <p class="eyebrow">Web hosting • IT services</p>
+        <p class="eyebrow">Web hosting • IT services • Laser engraving</p>
         <h1>Ideas made real.<br>Technology made simple.</h1>
         <p class="hero-text">
           GuyWorks provides practical technology services for businesses that need a professional web presence and dependable IT support.
@@ -37,7 +37,7 @@
         </div>
       </div>
 
-      <div class="hero-art hero-art-two" aria-label="GuyWorks service preview">
+      <div class="hero-art hero-art-three" aria-label="GuyWorks service preview">
         <div class="hero-panel">
           <span>WEB</span>
           <small>Static Hosting</small>
@@ -46,14 +46,15 @@
           <span>IT</span>
           <small>Consulting & Support</small>
         </div>
+        <div class="hero-panel"><span>LASER</span><small>Custom Engraving</small></div>
       </div>
     </section>
 
     <section class="section" id="services">
       <div class="section-heading">
         <p class="eyebrow">What we do</p>
-        <h2>Two services. One place to get things done.</h2>
-        <p>Whether you need a professional website or practical IT help, GuyWorks keeps the process straightforward.</p>
+        <h2>Three services. One place to get things done.</h2>
+        <p>Websites, IT consulting, and custom laser engraving—all in one place.</p>
       </div>
 
       <div class="service-grid">
@@ -87,6 +88,13 @@
               <li>Microsoft 365 and cloud guidance</li>
               <li>Network and workstation support</li>
             </ul>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="placeholder-image placeholder-laser"><span>LASER ENGRAVING</span></div>
+          <div class="service-content"><p class="service-number">03</p><h3>Laser Engraving</h3>
+            <p>Custom engraving for personalized gifts, signs, branded items, and small projects. Request a quote based on your design and quantity.</p>
+            <ul><li>Personalized gifts and keepsakes</li><li>Custom signs and branding</li><li>One-off items and small batches</li></ul>
           </div>
         </article>
       </div>
@@ -164,6 +172,15 @@
           <h3>Request A Quote</h3>
         </div>
         <form id="quote-form">
+          <div class="form-field"><label for="service-type">Service Needed</label>
+            <select id="service-type" required><option value="" selected disabled>Select a service</option><option>Static Website Hosting</option><option>IT Consulting</option><option>Laser Engraving</option></select>
+          </div>
+          <div id="laser-fields" hidden>
+            <div class="form-field"><label for="engraving-item">Item / Material</label><input id="engraving-item" placeholder="e.g. wood sign, tumbler, leather"></div>
+            <div class="form-field"><label for="engraving-quantity">Quantity</label><input id="engraving-quantity" type="number" min="1" step="1" placeholder="Number of items"></div>
+            <div class="form-field"><label for="engraving-details">Design, Size &amp; Deadline</label><textarea id="engraving-details" rows="4" placeholder="Describe the design, approximate size, deadline, and whether you have artwork."></textarea></div>
+          </div>
+          <div id="business-fields">
           <div class="form-field">
             <label for="business-type">Business Type</label>
             <select id="business-type" name="business-type" required>
@@ -184,6 +201,7 @@
             <input type="number" id="locations" name="locations" min="1" step="1" placeholder="1" required>
           </div>
 
+          </div>
           <div class="form-field">
             <label for="contact-email">Email</label>
             <input type="email" id="contact-email" name="contact-email" placeholder="you@example.com" required>
@@ -220,7 +238,7 @@
       <span class="brand-mark">GW</span>
       <span>GuyWorks</span>
     </div>
-    <p>Static Website Hosting • IT Consulting</p>
+    <p>Static Website Hosting • IT Consulting • Laser Engraving</p>
     <p>&copy; <span id="year"></span> GuyWorks. All rights reserved.</p>
   </footer>
 
@@ -246,6 +264,14 @@
       this.value = formatted;
     });
 
+    const serviceInput = document.getElementById('service-type');
+    serviceInput.addEventListener('change', () => {
+      const laser = serviceInput.value === 'Laser Engraving';
+      document.getElementById('laser-fields').hidden = !laser;
+      document.getElementById('business-fields').hidden = laser;
+      ['business-type','business-name','locations'].forEach(id => document.getElementById(id).required = !laser);
+      ['engraving-item','engraving-quantity','engraving-details'].forEach(id => document.getElementById(id).required = laser);
+    });
     document.getElementById('quote-form').addEventListener('submit', function (event) {
       event.preventDefault();
 
@@ -257,13 +283,18 @@
       const contactMethod = document.querySelector('input[name="contact-method"]:checked').value;
       const questions = document.getElementById('questions').value.trim() || 'None';
 
-      const subject = 'Quote Request - ' + businessName;
+      const laser = serviceInput.value === 'Laser Engraving';
+      const subject = 'Quote Request - ' + (laser ? 'Laser Engraving' : businessName);
       const body =
         'Hello GuyWorks,\n\n' +
         'I would like to request a quote.\n\n' +
-        'Business Type: ' + businessType + '\n' +
-        'Business Name: ' + businessName + '\n' +
-        'Number of Locations: ' + locations + '\n' +
+        'Service: ' + serviceInput.value + '\n' +
+        (laser ? 'Item / Material: ' + document.getElementById('engraving-item').value + '\n' +
+          'Quantity: ' + document.getElementById('engraving-quantity').value + '\n' +
+          'Design, Size & Deadline: ' + document.getElementById('engraving-details').value + '\n'
+        : 'Business Type: ' + businessType + '\n' +
+          'Business Name: ' + businessName + '\n' +
+          'Number of Locations: ' + locations + '\n') +
         'Email: ' + contactEmail + '\n' +
         'Phone: ' + contactPhone + '\n' +
         'Preferred Contact Method: ' + contactMethod + '\n\n' +
