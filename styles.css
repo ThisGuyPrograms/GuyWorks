@@ -1032,3 +1032,10 @@ footer p:last-child {
     font-size: .76rem;
   }
 }
+
+/* Laser engraving service and quote form */
+.hero-art-three { grid-template-columns: repeat(3,minmax(0,1fr)); grid-template-rows: 310px; }
+.hero-art-three .hero-panel { padding: 18px; }
+.hero-art-three .hero-panel span { font-size: clamp(1.5rem,3vw,2.8rem); }
+#laser-fields[hidden],#business-fields[hidden] { display:none; }
+@media(max-width:620px){.hero-art-three{grid-template-columns:1fr;grid-template-rows:repeat(3,160px)}}
