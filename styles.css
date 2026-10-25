@@ -1061,3 +1061,25 @@ footer p:last-child {
 .engraving-gallery-cta { margin-top: 24px; }
 @media (max-width: 900px) { .engraving-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 620px) { .engraving-gallery-grid { grid-template-columns: 1fr; } .engraving-gallery-image { height: 320px; } }
+
+/* Clickable service hero cards and dedicated service pages */
+.hero-panel-link { color: inherit; text-decoration: none; transition: transform .2s ease, border-color .2s ease; }
+.hero-panel-link:hover,.hero-panel-link:focus-visible { transform: translateY(-5px); border-color: rgba(255,177,94,.65); }
+.service-detail-link { display: inline-block; margin-top: 18px; color: var(--accent-light); font-weight: 800; }
+.detail-page { min-height: 65vh; }
+.detail-page .section-heading { max-width: 900px; }
+.detail-page h1 { font-size: clamp(2.8rem,6vw,5rem); }
+.detail-cta { margin-top: 28px; }
+.detail-page .engraving-gallery-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; max-width: 1000px; }
+.detail-page .engraving-gallery-card { border-radius: 14px; background: var(--panel); }
+.detail-page .engraving-gallery-image { height: 180px; padding: 12px; background: #1b232e; }
+.detail-page .engraving-gallery-image img { object-fit: contain; }
+.detail-page .engraving-gallery-caption { padding: 13px 15px; }
+.detail-page .engraving-gallery-caption h3 { font-size: .95rem; margin: 0; }
+.detail-page .engraving-gallery-caption span { display: none; }
+.detail-feature { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+.detail-feature .placeholder-image { min-height: 330px; border-radius: 18px; }
+.detail-feature p,.detail-feature li { color: var(--muted); }
+.detail-feature .button { margin-top: 20px; }
+@media(max-width:900px){.detail-page .engraving-gallery-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .detail-feature { grid-template-columns:1fr; }}
+@media(max-width:620px){.detail-page .engraving-gallery-grid { grid-template-columns:1fr; } .detail-page .engraving-gallery-image { height: 210px; }}
