@@ -1089,3 +1089,11 @@ footer p:last-child {
 .detail-page .engraving-gallery-image {
   background: #ffffff;
 }
+
+/* Separate real client work from demonstration templates */
+.portfolio-section + .portfolio-section { margin-top: 68px; }
+.portfolio-section-heading { max-width: 760px; margin-bottom: 24px; }
+.portfolio-section-heading .eyebrow { margin-bottom: 10px; }
+.portfolio-section-heading h2 { font-size: clamp(1.8rem, 3.2vw, 2.8rem); margin-bottom: 12px; }
+.portfolio-section-heading > p:last-child { color: var(--muted); margin-bottom: 0; }
+.portfolio-section-secondary { border-top: 1px solid var(--line); padding-top: 60px; }
