@@ -1097,3 +1097,17 @@ footer p:last-child {
 .portfolio-section-heading h2 { font-size: clamp(1.8rem, 3.2vw, 2.8rem); margin-bottom: 12px; }
 .portfolio-section-heading > p:last-child { color: var(--muted); margin-bottom: 0; }
 .portfolio-section-secondary { border-top: 1px solid var(--line); padding-top: 60px; }
+
+/* Web hosting pricing cards and conditional quote package selector */
+.website-pricing-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+.website-pricing-card { display:flex; flex-direction:column; min-width:0; padding:26px; border:1px solid var(--line); border-radius:20px; background:var(--panel); }
+.website-pricing-card h3 { min-height:2.3em; }
+.website-pricing-price { font-size:clamp(1.4rem,2.3vw,1.85rem); font-weight:800; color:var(--text); margin:10px 0 4px; }
+.website-pricing-monthly { color:var(--accent-light); font-size:1.05rem; font-weight:800; }
+.website-pricing-card > p:not(.service-number):not(.website-pricing-price):not(.website-pricing-monthly),.website-pricing-card li { color:var(--muted); font-size:.93rem; }
+.website-pricing-card ul { padding-left:20px; margin:0 0 24px; }
+.website-pricing-card .button { margin-top:auto; }
+.website-pricing-note { color:var(--muted); font-size:.86rem; margin-top:20px; }
+#web-package-fields[hidden] { display:none; }
+@media(max-width:900px){.website-pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:620px){.website-pricing-grid{grid-template-columns:1fr;}.website-pricing-card h3{min-height:0;}}
