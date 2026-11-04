@@ -1116,3 +1116,10 @@ footer p:last-child {
 .brand-logo { display:block; width:auto; height:64px; max-width:190px; object-fit:contain; }
 .footer-brand .brand-logo { height:84px; max-width:240px; }
 @media(max-width:600px){.site-header .brand-logo{height:52px;max-width:150px}.footer-brand .brand-logo{height:72px;max-width:200px}}
+
+/* Keep the full transparent logo compact and aligned with navigation. */
+.site-header { min-height:72px; }
+.site-header > .brand { flex:0 0 auto; width:110px; max-width:110px; }
+.site-header > .brand > img.brand-logo { display:block; width:110px !important; height:70px !important; max-width:110px !important; max-height:70px !important; object-fit:contain; }
+.footer-brand > img.brand-logo { display:block; width:125px !important; height:85px !important; max-width:125px !important; max-height:85px !important; object-fit:contain; }
+@media(max-width:620px){.site-header > .brand{width:90px;max-width:90px}.site-header > .brand > img.brand-logo{width:90px !important;height:58px !important;max-width:90px !important;max-height:58px !important}.footer-brand > img.brand-logo{width:105px !important;height:72px !important;max-width:105px !important;max-height:72px !important}}
