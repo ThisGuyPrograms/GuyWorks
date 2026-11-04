@@ -129,6 +129,15 @@
           <div class="form-field"><label for="service-type">Service Needed</label>
             <select id="service-type" required><option value="" selected disabled>Select a service</option><option>Static Website Hosting</option><option>IT Consulting</option><option>Laser Engraving</option></select>
           </div>
+          <div id="web-package-fields" class="form-field" hidden>
+            <label for="web-package">Website Package</label>
+            <select id="web-package">
+              <option value="" selected disabled>Select a website package</option>
+              <option value="Standard Template — starting at $150 build + $20/month">Standard Template — from $150 + $20/month</option>
+              <option value="Independent Website — $400–$750 build + $35/month">Independent Website — $400–$750 + $35/month</option>
+              <option value="Multi-Location Shared Template — from $500 build + $75/month">Multi-Location Shared Template — from $500 + $75/month</option>
+            </select>
+          </div>
           <div id="laser-fields" hidden>
             <div class="form-field"><label for="engraving-item">Item / Material</label><input id="engraving-item" placeholder="e.g. wood sign, tumbler, leather"></div>
             <div class="form-field"><label for="engraving-quantity">Quantity</label><input id="engraving-quantity" type="number" min="1" step="1" placeholder="Number of items"></div>
@@ -221,11 +230,22 @@
     const serviceInput = document.getElementById('service-type');
     serviceInput.addEventListener('change', () => {
       const laser = serviceInput.value === 'Laser Engraving';
+      const web = serviceInput.value === 'Static Website Hosting';
+      const packageFields = document.getElementById('web-package-fields');
+      packageFields.hidden = !web;
+      document.getElementById('web-package').required = web;
       document.getElementById('laser-fields').hidden = !laser;
       document.getElementById('business-fields').hidden = laser;
       ['business-type','business-name','locations'].forEach(id => document.getElementById(id).required = !laser);
       ['engraving-item','engraving-quantity','engraving-details'].forEach(id => document.getElementById(id).required = laser);
     });
+    const query = new URLSearchParams(window.location.search);
+    const selectedPackage = {standard: 0, independent: 1, multi: 2}[query.get('package')];
+    if (query.get('service') === 'web') {
+      serviceInput.value = 'Static Website Hosting';
+      serviceInput.dispatchEvent(new Event('change'));
+      if (selectedPackage !== undefined) document.getElementById('web-package').selectedIndex = selectedPackage + 1;
+    }
     document.getElementById('quote-form').addEventListener('submit', function (event) {
       event.preventDefault();
 
@@ -243,6 +263,7 @@
         'Hello GuyWorks,\n\n' +
         'I would like to request a quote.\n\n' +
         'Service: ' + serviceInput.value + '\n' +
+        (serviceInput.value === 'Static Website Hosting' ? 'Website Package: ' + document.getElementById('web-package').value + '\n' : '') +
         (laser ? 'Item / Material: ' + document.getElementById('engraving-item').value + '\n' +
           'Quantity: ' + document.getElementById('engraving-quantity').value + '\n' +
           'Design, Size & Deadline: ' + document.getElementById('engraving-details').value + '\n'
