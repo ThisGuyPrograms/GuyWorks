@@ -1111,3 +1111,8 @@ footer p:last-child {
 #web-package-fields[hidden] { display:none; }
 @media(max-width:900px){.website-pricing-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
 @media(max-width:620px){.website-pricing-grid{grid-template-columns:1fr;}.website-pricing-card h3{min-height:0;}}
+
+/* Full GuyWorks logo in header and footer */
+.brand-logo { display:block; width:auto; height:64px; max-width:190px; object-fit:contain; }
+.footer-brand .brand-logo { height:84px; max-width:240px; }
+@media(max-width:600px){.site-header .brand-logo{height:52px;max-width:150px}.footer-brand .brand-logo{height:72px;max-width:200px}}
