@@ -1122,3 +1122,7 @@ footer p:last-child {
   .site-header > .brand > img.brand-logo { width:170px; max-height:50px; }
   .footer-brand > img.brand-logo { width:180px; max-height:55px; }
 }
+
+/* Preserve the quote icon's original 48px square while showing the GuyWorks emblem. */
+.quote-icon { overflow:hidden; }
+.quote-icon-image { display:block; width:100%; height:100%; object-fit:contain; }
